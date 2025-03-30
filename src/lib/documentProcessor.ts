@@ -54,33 +54,9 @@ export async function processDocuments(sectionId: string, files: File[], webhook
       const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
       throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
     }
-
+    
     const data = await response.json();
-
-    // Normalize summary to ensure it's a valid format
-    let summary = data.summary;
-
-    // If summary is a string that looks like JSON, parse it
-    if (typeof summary === 'string') {
-      try {
-        const parsed = JSON.parse(summary);
-        summary = parsed;
-      } catch {
-        // If parsing fails, keep as original string
-      }
-    }
-
-    // Ensure summary is either a string or a plain object
-    if (typeof summary !== 'string' && 
-        !(summary && typeof summary === 'object' && !Array.isArray(summary))) {
-      // Convert to string if not already a string or object
-      summary = JSON.stringify(summary);
-    }
-
-    console.log('Processed summary:', summary);
-    console.log('Summary type:', typeof summary);
-
-    return JSON.stringify(summary);
+    return data.summary;
   } catch (error) {
     console.error('Error processing documents:', error);
     throw error instanceof Error ? error : new Error('Failed to process documents');

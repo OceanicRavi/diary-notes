@@ -1,6 +1,7 @@
 import React from 'react';
 import { Download, FileText, File as FilePdf } from 'lucide-react';
 import { DocumentSections } from '../types';
+import ReactMarkdown from 'react-markdown';
 
 interface SummaryPanelProps {
   sections: DocumentSections;
@@ -12,35 +13,16 @@ export function SummaryPanel({ sections, onDownload }: SummaryPanelProps) {
     (section) => section.status === 'complete'
   );
 
-  // Helper function to safely render summary content
-  const renderSummaryContent = (summary: string) => {
-    // Remove outer curly braces
-    const cleanSummary = summary.replace(/^{|}$/g, '');
 
-    // Split the string and parse key-value pairs
-    const lines = cleanSummary
-      .split('","')
-      .map(line => {
-        // Split the first occurrence of ":" to separate key and value
-        const [key, value] = line.split('":"');
-        return value
-          ? <>
-            <strong>{key.replace(/^"/, '')}</strong>: {value.replace(/"$/, '')}
-          </>
-          : line;
-      })
-      .filter(line => line);
-
+  const renderSummaryContent = (summary: string | null | undefined) => {
     return (
       <div className="text-sm text-gray-700 bg-gray-100 p-4 rounded-md border border-gray-300">
-        {lines.map((line, index) => (
-          <div key={index} className="mb-1">
-            {line}
-          </div>
-        ))}
+        <ReactMarkdown>{summary}</ReactMarkdown>
       </div>
     );
   };
+
+
 
   return (
     <div className="section-card p-6">
@@ -52,11 +34,11 @@ export function SummaryPanel({ sections, onDownload }: SummaryPanelProps) {
           </div>
         )}
       </div>
-
-      <div className="space-y-6">
+  
+      <div className="space-y-6 max-h-screen overflow-y-auto">
         {Object.values(sections).map((section) => {
           if (!section.summary) return null;
-
+  
           return (
             <div key={section.id} className="pb-6 border-b border-gray-200 last:border-0">
               <h3 className="font-medium text-gray-900 mb-3">{section.title}</h3>
@@ -65,7 +47,7 @@ export function SummaryPanel({ sections, onDownload }: SummaryPanelProps) {
           );
         })}
       </div>
-
+  
       <div className="mt-8 flex gap-4">
         <button
           onClick={() => onDownload('docx')}
@@ -84,4 +66,5 @@ export function SummaryPanel({ sections, onDownload }: SummaryPanelProps) {
       </div>
     </div>
   );
+  
 }

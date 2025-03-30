@@ -114,15 +114,6 @@ export function DocumentSection({
               placeholder="Add any additional notes here..."
             />
           </div>
-
-          {section.summary && (
-            <div className="mt-6">
-              <h4 className="text-sm font-medium text-gray-900 mb-3">Section Summary:</h4>
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 text-sm text-gray-700">
-                {section.summary}
-              </div>
-            </div>
-          )}
         </div>
       )}
     </div>

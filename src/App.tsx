@@ -3,6 +3,7 @@ import { DocumentSection, DocumentSections, EmploymentType } from './types';
 import { DocumentSection as DocumentSectionComponent } from './components/DocumentSection';
 import { SummaryPanel } from './components/SummaryPanel';
 import { processDocuments, generateDocument } from './lib/documentProcessor';
+const webhook = 'https://novanexus.app.n8n.cloud/webhook/425bf551-ef8c-4690-a31d-40fa7c0183b9';
 
 const initialSections: DocumentSections = {
   identification: {
@@ -11,7 +12,7 @@ const initialSections: DocumentSections = {
     description: 'Upload government-issued ID documents',
     status: 'pending',
     files: [],
-    webhookUrl: 'https://novanexus.app.n8n.cloud/webhook-test/425bf551-ef8c-4690-a31d-40fa7c0183b9',
+    webhookUrl: webhook,
   },
   income: {
     id: 'income',
@@ -19,7 +20,7 @@ const initialSections: DocumentSections = {
     description: 'Upload pay stubs, T4s, or business financial statements',
     status: 'pending',
     files: [],
-    webhookUrl: 'https://n8n.example.com/webhook/income',
+    webhookUrl: webhook,
   },
   bankStatements: {
     id: 'bankStatements',
@@ -27,7 +28,7 @@ const initialSections: DocumentSections = {
     description: 'Upload last 3 months of bank statements',
     status: 'pending',
     files: [],
-    webhookUrl: 'https://n8n.example.com/webhook/bank-statements',
+    webhookUrl: webhook,
   },
   depositProof: {
     id: 'depositProof',
@@ -35,7 +36,7 @@ const initialSections: DocumentSections = {
     description: 'Upload proof of down payment',
     status: 'pending',
     files: [],
-    webhookUrl: 'https://n8n.example.com/webhook/deposit-proof',
+    webhookUrl: webhook,
   },
   assetsLiabilities: {
     id: 'assetsLiabilities',
@@ -43,7 +44,7 @@ const initialSections: DocumentSections = {
     description: 'Upload statements for investments, debts, etc.',
     status: 'pending',
     files: [],
-    webhookUrl: 'https://n8n.example.com/webhook/assets-liabilities',
+    webhookUrl: webhook,
   },
   propertyInfo: {
     id: 'propertyInfo',
@@ -51,7 +52,7 @@ const initialSections: DocumentSections = {
     description: 'Upload property details, MLS listing, or purchase agreement',
     status: 'pending',
     files: [],
-    webhookUrl: 'https://n8n.example.com/webhook/property-info',
+    webhookUrl: webhook,
   },
   other: {
     id: 'other',
@@ -59,7 +60,7 @@ const initialSections: DocumentSections = {
     description: 'Upload any additional supporting documents',
     status: 'pending',
     files: [],
-    webhookUrl: 'https://n8n.example.com/webhook/other',
+    webhookUrl: webhook,
   },
 };
 
