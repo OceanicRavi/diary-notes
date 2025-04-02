@@ -3,6 +3,7 @@ import { DocumentSection, DocumentSections, EmploymentType } from './types';
 import { DocumentSection as DocumentSectionComponent } from './components/DocumentSection';
 import { SummaryPanel } from './components/SummaryPanel';
 import { processDocuments, generateDocument } from './lib/documentProcessor';
+import { FileUp, FileDown, FileImage, FileText, ListChecks } from 'lucide-react';
 
 const webhook = import.meta.env.N8N_WEBHOOK;
 
@@ -175,6 +176,43 @@ function App() {
           <p className="mt-2 text-gray-600">
             Upload your documents section by section. We'll generate a summary for each section as you go.
           </p>
+
+          <div className="mt-4 p-4 bg-gray-100 rounded-lg">
+            <h2 className="text-lg font-semibold text-gray-800 mb-2">How It Works</h2>
+
+            <ul className="text-gray-700 space-y-3">
+              <li className="flex items-start">
+                <FileUp className="w-5 h-5 text-blue-500 mr-2" />
+                <span><strong>Upload Any File</strong> – You can upload files in any format.</span>
+              </li>
+              <li className="flex items-start">
+                <FileDown className="w-5 h-5 text-green-500 mr-2" />
+                <span>
+                  <strong>Convert to PDF (If Needed)</strong> – If the uploaded file is not a PDF, you will get an option to
+                  <strong> Download as PDF</strong> to your local PC.
+                  <em> (This file will not be uploaded automatically—you must upload it manually if needed.)</em>
+                </span>
+              </li>
+              <li className="flex items-start">
+                <FileImage className="w-5 h-5 text-yellow-500 mr-2" />
+                <span>
+                  <strong>Extract Images from PDFs</strong> – If the uploaded file is a PDF, images will be extracted automatically.
+                  <ul className="ml-6 list-disc">
+                    <li><strong>Download as Image</strong> – Saves the PDF as an image file on your local PC. <em>(You will need to upload it manually if required.)</em></li>
+                    <li><strong>Upload as Image</strong> – Allows you to re-upload the file as an image for better processing.</li>
+                  </ul>
+                </span>
+              </li>
+              <li className="flex items-start">
+                <FileText className="w-5 h-5 text-purple-500 mr-2" />
+                <span><strong>Ensure Scanned PDFs</strong> – If your PDF looks like a scanned document, re-upload it as an image for better results.</span>
+              </li>
+              <li className="flex items-start">
+                <ListChecks className="w-5 h-5 text-red-500 mr-2" />
+                <span><strong>Summarize Documents</strong> – The "Summarize Doc" button will generate a summary only from the list of uploaded files.</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="mb-6">
