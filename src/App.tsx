@@ -4,8 +4,9 @@ import { DocumentSection as DocumentSectionComponent } from './components/Docume
 import { SummaryPanel } from './components/SummaryPanel';
 import { processDocuments, generateDocument } from './lib/documentProcessor';
 import { FileUp, FileDown, FileImage, FileText, ListChecks } from 'lucide-react';
+import { config } from './config';
 
-const webhook = import.meta.env.N8N_WEBHOOK;
+const webhook = 'https://novanexus.app.n8n.cloud/webhook/df6a7a5a-6394-4610-9314-4aec3c9a0e48';
 
 const initialSections: DocumentSections = {
   identification: {
