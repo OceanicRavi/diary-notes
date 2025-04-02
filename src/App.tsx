@@ -3,7 +3,8 @@ import { DocumentSection, DocumentSections, EmploymentType } from './types';
 import { DocumentSection as DocumentSectionComponent } from './components/DocumentSection';
 import { SummaryPanel } from './components/SummaryPanel';
 import { processDocuments, generateDocument } from './lib/documentProcessor';
-const webhook = 'https://novanexus.app.n8n.cloud/webhook/425bf551-ef8c-4690-a31d-40fa7c0183b9';
+
+const webhook = import.meta.env.N8N_WEBHOOK;
 
 const initialSections: DocumentSections = {
   identification: {
