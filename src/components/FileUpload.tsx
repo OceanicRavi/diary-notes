@@ -38,7 +38,7 @@ export function FileUpload({ onFileSelect, accept, multiple = true }: FileUpload
         )}
       </p>
       <p className="mt-2 text-xs text-gray-500">
-        Supported formats: PDF, DOC, DOCX, TXT, PNG, JPG
+        Supported formats: PDF, DOC, DOCX, TXT, PNG, JPG, XLS, XLSX, CSV
       </p>
     </div>
   );

@@ -192,6 +192,9 @@ function App() {
                   <strong>Convert to PDF (If Needed)</strong> – If the uploaded file is not a PDF, you will get an option to
                   <strong> Download as PDF</strong> to your local PC.
                   <em> (This file will not be uploaded automatically—you must upload it manually if needed.)</em>
+                  <ul className="ml-6 list-disc">
+                    <li><strong>Microsoft Word and Excel files</strong> – For the best results, please use Office tools to save them as PDFs before uploading.</li>
+                  </ul>
                 </span>
               </li>
               <li className="flex items-start">
@@ -216,7 +219,7 @@ function App() {
           </div>
         </div>
 
-        <div className="mb-6">
+{/*         <div className="mb-6">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Email Address (optional)
           </label>
@@ -227,9 +230,9 @@ function App() {
             className="w-full max-w-md rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             placeholder="Enter your email to receive the summary"
           />
-        </div>
+        </div> */}
 
-        <div className="mb-6">
+{/*         <div className="mb-6">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Employment Type
           </label>
@@ -255,7 +258,7 @@ function App() {
               <span className="ml-2">Self-Employed</span>
             </label>
           </div>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="space-y-6">
